@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hospitales',
+    'hospitals',
 ]
 
 MIDDLEWARE = [
@@ -133,4 +133,4 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-PATH_VAR = "http://" + os.environ.get("VARIABLES_HOST", "0.0.0.0") + ":" + os.environ.get("VARIABLES_PORT", "8080") + "/variables"
+PATH_VAR = "http://" + os.environ.get("VARIABLES_HOST", "0.0.0.0") + ":" + os.environ.get("ACTIVOSFIJOS_PORT", "8080") + "/activosfijos"
