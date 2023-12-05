@@ -1,4 +1,4 @@
-from .models import Measurement
+from .models import Hospital
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
@@ -16,41 +16,41 @@ def check_variable(data):
             return True
     return False
 
-def MeasurementList(request):
-    queryset = Measurement.objects.all()
+def HospitalList(request):
+    queryset = Hospital.objects.all()
     context = list(queryset.values('id', 'variable', 'value', 'unit', 'place', 'dateTime'))
     return JsonResponse(context, safe=False)
 
-def MeasurementCreate(request):
+def HospitalCreate(request):
     if request.method == 'POST':
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
         if check_variable(data_json) == True:
-            measurement = Measurement()
-            measurement.variable = data_json['variable']
-            measurement.value = data_json['value']
-            measurement.unit = data_json['unit']
-            measurement.place = data_json['place']
-            measurement.save()
-            return HttpResponse("successfully created measurement")
+            hospital = Hospital()
+            hospital.variable = data_json['variable']
+            hospital.value = data_json['value']
+            hospital.unit = data_json['unit']
+            hospital.place = data_json['place']
+            hospital.save()
+            return HttpResponse("successfully created hospital")
         else:
-            return HttpResponse("unsuccessfully created measurement. Variable does not exist")
+            return HttpResponse("unsuccessfully created hospital. Variable does not exist")
 
-def MeasurementsCreate(request):
+def HospitalsCreate(request):
     if request.method == 'POST':
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
-        measurement_list = []
-        for measurement in data_json:
-                    if check_variable(measurement) == True:
-                        db_measurement = Measurement()
-                        db_measurement.variable = measurement['variable']
-                        db_measurement.value = measurement['value']
-                        db_measurement.unit = measurement['unit']
-                        db_measurement.place = measurement['place']
-                        measurement_list.append(db_measurement)
+        hospital_list = []
+        for hospital in data_json:
+                    if check_variable(hospital) == True:
+                        db_hospital = Hospital()
+                        db_hospital.variable = hospital['variable']
+                        db_hospital.value = hospital['value']
+                        db_hospital.unit = hospital['unit']
+                        db_hospital.place = hospital['place']
+                        hospital_list.append(db_hospital)
                     else:
-                        return HttpResponse("unsuccessfully created measurement. Variable does not exist")
+                        return HttpResponse("unsuccessfully created hospital. Variable does not exist")
         
-        Measurement.objects.bulk_create(measurement_list)
-        return HttpResponse("successfully created measurements")
+        Hospital.objects.bulk_create(hospital_list)
+        return HttpResponse("successfully created hospitals")
