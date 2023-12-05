@@ -1,6 +1,6 @@
 from django.db import models
 
-class ActivoFIjo(models.Model):
+class ActivoFijo(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
