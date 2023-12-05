@@ -8,33 +8,33 @@ from django.conf import settings
 import requests
 import json
 
-def check_variable(data):
+def check_activofijo(data):
     r = requests.get(settings.PATH_VAR, headers={"Accept":"application/json"})
     variables = r.json()
     for variable in variables:
-        if data["variable"] == variable["id"]:
+        if data["activofijo"] == variable["id"]:
             return True
     return False
 
 def HospitalList(request):
     queryset = Hospital.objects.all()
-    context = list(queryset.values('id', 'variable', 'value', 'unit', 'place', 'dateTime'))
+    context = list(queryset.values('id', 'activofijo', 'precio', 'marca', 'numquejas', 'dateTime'))
     return JsonResponse(context, safe=False)
 
 def HospitalCreate(request):
     if request.method == 'POST':
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
-        if check_variable(data_json) == True:
+        if check_activofijo(data_json) == True:
             hospital = Hospital()
-            hospital.variable = data_json['variable']
-            hospital.value = data_json['value']
-            hospital.unit = data_json['unit']
-            hospital.place = data_json['place']
+            hospital.activofijo = data_json['activosfijos']
+            hospital.precio = data_json['precio']
+            hospital.marca = data_json['marca']
+            hospital.numquejas = data_json['numquejas']
             hospital.save()
             return HttpResponse("successfully created hospital")
         else:
-            return HttpResponse("unsuccessfully created hospital. Variable does not exist")
+            return HttpResponse("unsuccessfully created hospital. ActivoFijo does not exist")
 
 def HospitalsCreate(request):
     if request.method == 'POST':
@@ -42,15 +42,15 @@ def HospitalsCreate(request):
         data_json = json.loads(data)
         hospital_list = []
         for hospital in data_json:
-                    if check_variable(hospital) == True:
+                    if check_activofijo(hospital) == True:
                         db_hospital = Hospital()
-                        db_hospital.variable = hospital['variable']
-                        db_hospital.value = hospital['value']
+                        db_hospital.activofijo = hospital['activofijo']
+                        db_hospital.precio = hospital['precio']
                         db_hospital.unit = hospital['unit']
-                        db_hospital.place = hospital['place']
+                        db_hospital.numquejas = hospital['numquejas']
                         hospital_list.append(db_hospital)
                     else:
-                        return HttpResponse("unsuccessfully created hospital. Variable does not exist")
+                        return HttpResponse("unsuccessfully created hospital. ActivoFijo does not exist")
         
         Hospital.objects.bulk_create(hospital_list)
         return HttpResponse("successfully created hospitals")
