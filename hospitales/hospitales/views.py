@@ -53,4 +53,4 @@ def HospitalsCreate(request):
                         return HttpResponse("unsuccessfully created hospital. ActivoFijo does not exist")
         
         Hospital.objects.bulk_create(hospital_list)
-        return HttpResponse("successfully created hospitals")
+        return HttpResponse("successfully created hospital")
