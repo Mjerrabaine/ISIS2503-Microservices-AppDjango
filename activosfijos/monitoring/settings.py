@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'variables',
+    'activosfijos',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +81,7 @@ DATABASES = {
         'USER': 'variables_user',
         'PASSWORD': 'isis2503',
         'HOST': '0.0.0.0',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 
