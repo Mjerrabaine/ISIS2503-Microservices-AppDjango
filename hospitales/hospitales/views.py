@@ -36,7 +36,7 @@ def HospitalCreate(request):
         else:
             return HttpResponse("unsuccessfully created hospital. ActivoFijo does not exist")
 
-def HospitalsCreate(request):
+def HospitalesCreate(request):
     if request.method == 'POST':
         data = request.body.decode('utf-8')
         data_json = json.loads(data)
