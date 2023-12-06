@@ -1,6 +1,6 @@
-[{"activofijo": "Electrocardiograma", "precio": 19.63, "marca": "MarcaA", "numquejas": 1},
-{"activofijo": "Resonancia Magnética", "precio": 32.71, "marca": "MarcaB", "numquejas": 1},
-{"activofijo": "Electrocardiograma", "precio": 40.11, "marca": "MarcaC", "numquejas": 1},
-{"activofijo": "Resonancia Magnética", "precio": 22.33, "marca": "MarcaD", "numquejas": 1},
-{"activofijo": "Tomografía Computarizada", "precio": 14.33, "marca": "MarcaE", "numquejas": 1},
-{"activofijo": "Resonancia Magnética", "precio": 42.28, "marca": "MarcaF", "numquejas": 1}]
+[{"activofijo": 1, "precio": 19.63, "marca": "MarcaA", "numquejas": 1},
+{"activofijo": 1, "precio": 32.71, "marca": "MarcaB", "numquejas": 1},
+{"activofijo": 1, "precio": 40.11, "marca": "MarcaC", "numquejas": 1},
+{"activofijo": 1, "precio": 22.33, "marca": "MarcaD", "numquejas": 1},
+{"activofijo": 1, "precio": 14.33, "marca": "MarcaE", "numquejas": 1},
+{"activofijo": 1, "precio": 42.28, "marca": "MarcaF", "numquejas": 1}]
