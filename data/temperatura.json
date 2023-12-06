@@ -4,5 +4,5 @@
     {"activofijo": "Electrocardiograma", "precio": 40.11, "marca": "MarcaC", "numquejas": 1},
     {"activofijo": "Resonancia Magnética", "precio": 22.33, "marca": "MarcaD", "numquejas": 1},
     {"activofijo": "Tomografía Computarizada", "precio": 14.33, "marca": "MarcaE", "numquejas": 1},
-    {"activofijo": "Resonancia Magnética", "precio": 42.28, "marca": "MarcaF", "numquejas": 1},
+    {"activofijo": "Resonancia Magnética", "precio": 42.28, "marca": "MarcaF", "numquejas": 1}
 ]
