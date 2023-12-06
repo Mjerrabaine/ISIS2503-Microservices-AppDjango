@@ -17,7 +17,7 @@ def check_activofijo(data):
     return False
 
 def HospitalList(request):
-    queryset = Hospital.objects.all()
+    queryset = Hospital.objects.all().order_by('-numquejas')[:10]
     context = list(queryset.values('id', 'activofijo', 'precio', 'marca', 'numquejas', 'dateTime'))
     return JsonResponse(context, safe=False)
 
