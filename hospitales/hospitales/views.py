@@ -27,7 +27,7 @@ def HospitalCreate(request):
         data_json = json.loads(data)
         if check_activofijo(data_json) == True:
             hospital = Hospital()
-            hospital.activofijo = data_json['activosfijo']
+            hospital.activofijo = data_json['activofijo']
             hospital.precio = data_json['precio']
             hospital.marca = data_json['marca']
             hospital.numquejas = data_json['numquejas']
