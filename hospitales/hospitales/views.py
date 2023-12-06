@@ -46,7 +46,7 @@ def HospitalesCreate(request):
                         db_hospital = Hospital()
                         db_hospital.activofijo = hospital['activofijo']
                         db_hospital.precio = hospital['precio']
-                        db_hospital.unit = hospital['unit']
+                        db_hospital.marca = hospital['marca']
                         db_hospital.numquejas = hospital['numquejas']
                         hospital_list.append(db_hospital)
                     else:
